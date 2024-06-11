@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Table</title>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <!-- Include DataTables JS -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+
+<table id="myTable" class="display">
+    <thead>
+        <tr>
+            <th>Anno</th>
+            <th>Mese</th>
+            <th>Sum of Net Profit</th>
+            <th>Net Profit YTD</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>2024</td>
+            <td>aprile</td>
+            <td>147249 €</td>
+            <td>147249 €</td>
+        </tr>
+        <tr>
+            <td>2024</td>
+            <td>maggio</td>
+            <td>238190.2 €</td>
+            <td>385439.2 €</td>
+        </tr>
+        <!-- Aggiungi altre righe qui -->
+    </tbody>
+</table>
+
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+</script>
+
+</body>
+</html>
