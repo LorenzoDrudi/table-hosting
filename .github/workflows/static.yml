@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabella Clienti</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .search-box {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Tabella Clienti</h2>
+    <input type="text" id="searchInput" class="search-box" onkeyup="filterTable()" placeholder="Cerca nella tabella...">
+    <table id="clientTable">
+        <thead>
+            <tr>
+                <th>Codice Cliente</th>
+                <th>Punti</th>
+                <th>Livello</th>
+                <th>Ricompensa</th>
+                <th>Ultimo Aggiornamento</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>A001A</td>
+                <td>1000</td>
+                <td>Gold</td>
+                <td>5%</td>
+                <td>mag-24</td>
+            </tr>
+            <tr>
+                <td>A002B</td>
+                <td>500</td>
+                <td>Silver</td>
+                <td>3%</td>
+                <td>mag-24</td>
+            </tr>
+            <tr>
+                <td>A003A</td>
+                <td>1</td>
+                <td>NA</td>
+                <td>NA</td>
+                <td>mag-24</td>
+            </tr>
+            <tr>
+                <td>A004B</td>
+                <td>0</td>
+                <td>NA</td>
+                <td>NA</td>
+                <td>mag-24</td>
+            </tr>
+            <tr>
+                <td>A023A</td>
+                <td>500</td>
+                <td>Silver</td>
+                <td>3%</td>
+                <td>mag-24</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function filterTable() {
+            var input, filter, table, tr, td, i, j, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("clientTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 1; i < tr.length; i++) {
+                tr[i].style.display = "none";
+                td = tr[i].getElementsByTagName("td");
+                for (j = 0; j < td.length; j++) {
+                    if (td[j]) {
+                        txtValue = td[j].textContent || td[j].innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
